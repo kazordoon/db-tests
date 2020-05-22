@@ -25,6 +25,7 @@
     "pg": "^8.2.1"
   },
   "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
     "@types/jest": "^25.2.3",
     "@types/knex": "^0.16.1",
     "@types/pg": "^7.14.3",
