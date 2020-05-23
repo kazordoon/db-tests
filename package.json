@@ -22,7 +22,8 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "knex": "^0.21.1",
-    "pg": "^8.2.1"
+    "pg": "^8.2.1",
+    "pg-types": "^3.0.0"
   },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
