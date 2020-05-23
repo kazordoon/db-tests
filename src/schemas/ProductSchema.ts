@@ -8,9 +8,10 @@ class ProductSchema extends Crud {
   }
 
   public async create (product: CreateProduct) {
-    const productId = await this.connection('products')
+    const result = await this.connection('products')
       .insert(product)
       .returning('id')
+    const productId: number = result[0]
     return productId
   }
 
