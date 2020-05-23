@@ -23,4 +23,15 @@ describe('Product', () => {
     const productId = await productSchema.create(CREATE_PRODUCT_MOCK)
     expect(productId).toBeDefined()
   })
+
+  it('should list all products', async () => {
+    const productSchema = new ProductSchema(connection)
+
+    const productId = await productSchema.create(CREATE_PRODUCT_MOCK)
+
+    const products = await productSchema.find({ id: productId })
+
+    expect(products).toBeDefined()
+    expect(products[0].id).toBe(productId)
+  })
 })
