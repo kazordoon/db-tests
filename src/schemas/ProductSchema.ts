@@ -32,7 +32,6 @@ class ProductSchema extends Crud {
       .returning('*')
 
     const updatedProduct: FindProduct = result[0]
-    console.log(updatedProduct.price, typeof updatedProduct.price)
     return updatedProduct
   }
 
