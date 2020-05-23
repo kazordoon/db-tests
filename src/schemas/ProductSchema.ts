@@ -1,6 +1,7 @@
 import Knex from 'knex'
 import Crud from '../models/Crud'
 import CreateProduct from '../models/CreateProduct'
+import FindProduct from '../models/FindProduct'
 
 class ProductSchema extends Crud {
   public constructor (protected connection: Knex) {
@@ -15,7 +16,13 @@ class ProductSchema extends Crud {
     return productId
   }
 
-  public find (product) {}
+  public async find (product: FindProduct) {
+    const products: FindProduct[] = await this.connection('products')
+      .select('*')
+      .where(product)
+
+    return products
+  }
 
   public update (id, product) {}
 
