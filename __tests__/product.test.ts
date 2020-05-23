@@ -21,7 +21,6 @@ describe('Product', () => {
     const productSchema = new ProductSchema(connection)
 
     const productId = await productSchema.create(CREATE_PRODUCT_MOCK)
-    console.log(productId)
     expect(productId).toBeDefined()
   })
 })

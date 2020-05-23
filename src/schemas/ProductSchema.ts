@@ -7,11 +7,6 @@ class ProductSchema extends Crud {
     super(connection)
   }
 
-  /**
-   * Create a new product
-   * @param {CreateProduct} product
-   * @return Generated id
-   */
   public async create (product: CreateProduct) {
     const productId = await this.connection('products')
       .insert(product)
