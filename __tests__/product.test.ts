@@ -9,7 +9,7 @@ const CREATE_PRODUCT_MOCK: CreateProduct = {
   price: 700.99
 }
 const UPDATE_PRODUCT_MOCK: UpdateProduct = {
-  price: 1699.50
+  price: 1699.5
 }
 
 describe('Product', () => {
@@ -48,5 +48,16 @@ describe('Product', () => {
 
     expect(product).toBeDefined()
     expect(product.price).toBe(UPDATE_PRODUCT_MOCK.price)
+  })
+
+  it('should delete a product', async () => {
+    const productSchema = new ProductSchema(connection)
+
+    const productId = await productSchema.create(CREATE_PRODUCT_MOCK)
+    const isDeleted = await productSchema.destroy(productId)
+    const hasNoProducts = !(await productSchema.find({ id: productId })).length
+
+    expect(isDeleted).toBe(true)
+    expect(hasNoProducts).toBe(true)
   })
 })
