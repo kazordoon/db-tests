@@ -35,7 +35,13 @@ class ProductSchema extends Crud {
     return updatedProduct
   }
 
-  public destroy (id) {}
+  public async destroy (id: number) {
+    await this.connection('products')
+      .delete('*')
+      .where('id', '=', id)
+
+    return true
+  }
 }
 
 export default ProductSchema
